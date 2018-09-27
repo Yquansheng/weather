@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>天气首页</title>
+    <script src="./js/rem.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <!--<script src="./js/index.js"></script>-->
+    <script type="text/javascript">
+
+        document.addEventListener('plusready', function(){
+            //console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+        });
+
+    </script>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+</head>
+<body>
+    <header>
+        <div class="top">
+            <i></i>
+            <div class="location">
+                <i class="iconfont icon-location"></i>
+                <span>太原市 阳曲县</span>
+
+            </div>
+            <div class="picture">
+                <img src="./img/tutu.png" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <h4>空气</h4>
+            <p>轻度污染</p>
+        </div>
+        <h1>0°</h1>
+        <p class="wheather">0</p>
+        <p class="water">湿度 28%</p>
+        <p class="sug">天冷了，注意保暖~</p>
+        <img src="./img/screen.png" alt="">
+    </header>
+    <main>
+        <div class="main-top">
+            <ul>
+                <li>
+                    <div class="first">
+                        <span>今天</span>
+                        <span>2/-11°C</span>
+                    </div>
+                    <div class="second">
+                        <span>晴转多云</span>
+                        <span class="dot"><img src="" alt=""></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="first">
+                        <span>明天</span>
+                        <span>3/-13°C</span>
+                    </div>
+                    <div class="second">
+                        <span>晴</span>
+                        <span class="dot"><img src="" alt=""></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-center">
+            <ul>
+                <!--<li>
+                    <span class="time">12:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">13:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">14:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">15:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">16:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">17:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">18:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">19:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">20:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">21:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">22:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">23:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">24:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">1:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">2:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">3:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">4:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">5:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">6:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">7:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">8:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">9:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">10:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>
+                <li>
+                    <span class="time">11:00</span>
+                    <span class="dot"></span>
+                    <span>-1°</span>
+                </li>-->
+            </ul>
+        </div>
+        <div class="main-home">
+            <ul>
+                <!--<li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="h-t">
+                        <p>昨天</p>
+                        <p>01/15</p>
+                        <h4>多云</h4>
+                        <span><img src="./img/1.png" alt=""></span>
+                    </div>
+                    <div class="h-b">
+                        <span><img src="./img/1.png" alt=""></span>
+                        <h4>多云</h4>
+                        <p>西北风</p>
+                        <p>3级</p>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <div class="main-foot">
+            <ul>
+                <li>
+                    <span><i class="iconfont icon-yusan"></i></span>
+                    <h3>不带伞</h3>
+                    <p>雨伞</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-tianqi-chuanyizhishu"style="color: #E0A1C2"></i></span>
+                    <h3>冷</h3>
+                    <p>穿衣</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-iconset0451"style="color: #D9A89B"></i></span>
+                    <h3>较弱</h3>
+                    <p>防嗮</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-tubiaojiaonangyao"style="color: #DEC69B"></i></span>
+                    <h3>较易发</h3>
+                    <p>感冒</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-icon5"style="color: #E3D696"></i></span>
+                    <h3>较不宜</h3>
+                    <p>运动</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-xiche"style="color: #B4E5A7"></i></span>
+                    <h3>较适宜</h3>
+                    <p>洗车</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-yu"style="color: #A1DED3"></i></span>
+                    <h3>不宜</h3>
+                    <p>钓鱼</p>
+                </li>
+                <li>
+                    <span><i class="iconfont icon-honglvdeng"style="color: #718A96"></i></span>
+                    <h3>良好</h3>
+                    <p>交通</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        数据来源于中国天气网
+    </footer>
+    <div class="search">
+        <div class="search-text">
+            <input type="text" placeholder="搜索市、区、县等">
+            <i class="iconfont icon-sousuo"></i>
+            <span>取消</span>
+        </div>
+        <div class="cont">
+            <div class="now">
+                <h5>当前定位</h5>
+                <div>
+                    <li>太原</li>
+                </div>
+            </div>
+            <div class="history">
+                <div class="title">
+                    <h5>历史记录</h5>
+                    <i class="iconfont icon-lajixiang"></i>
+                </div>
+                <div class="historylist">
+                    <ul>
+                        <!--<li>拉萨</li>
+                        <li>上海</li>-->
+                    </ul>
+                </div>
+            </div>
+           <!-- <div class="hotcity">
+                <div class="citylist">
+                    <h5>热门城市</h5>
+                    <ul>
+                        <li>北京</li>
+                        <li>上海</li>
+                        <li>广州</li>
+                        <li>深圳</li>
+                        <li>郑州</li>
+                        <li>西安</li>
+                        <li>南京</li>
+                        <li>杭州</li>
+                        <li>武汉</li>
+                        <li>成都</li>
+                        <li>沈阳</li>
+                        <li>天津</li>
+                    </ul>
+                </div>
+            </div>-->
+            <div class="hotview">
+               <!-- <h5>所有城市</h5>-->
+                <div class="viewlist">
+                    <ul>
+                       <!-- <li>故宫</li>
+                        <li>颐和园</li>
+                        <li>九寨沟</li>
+                        <li>凤凰古城</li>
+                        <li>秦始皇陵</li>
+                        <li>龙门石窟</li>
+                        <li>武陵源</li>
+                        <li>华山</li>
+                        <li>黄山</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+//	$(function () {
+    $(".location").click(function () {
+        $(".search").show(500);
+    });
+    $(".search-text>span").click(function () {
+        $(".search").hide(300);
+        // console.log($(".search-text>span"));
+    });
+    //获取城市信息
+    let city;
+    $.ajax({
+        type: "get",
+        url: "https://www.toutiao.com/stream/widget/local_weather/city/",
+        dataType: "jsonp",
+        success: function (obj) {
+            city = obj.data;
+            console.log(city);
+            updataCity(city);
+        }
+    });
+
+    function updataCity(city) {
+        for (let i in city) {
+            let str=`<h5>${i}</h5>`;
+            $(".viewlist>ul").append(str);
+            for(let j in city[i]){
+                let str=`<li>${j}</li>`;
+                $(".viewlist>ul").append(str);
+            }
+        }
+    }
+    //点击每个城市，获取当前城市的天气信息
+    window.onload=function(){
+        $(".search li").click(function () {
+            console.log(this);
+            let con=$(this).html();
+            ajax1(con);
+            let str=`<li>${con}</li>`;
+            $(".historylist>ul").append(str);
+            $(".search").hide(300);
+        })
+    
+	}
+    //获取某个城市的天气信息
+    function ajax1(con){
+        let url1="https://www.toutiao.com/stream/widget/local_weather/data/?city="+con;
+        $.ajax({
+            type: "get",
+            url:url1,
+            dataType: "jsonp",
+            success: function (obj) {
+                tianqi = obj.data;
+                // console.log(tianqi);
+                $(".main-center li").remove();
+                $(".main-home li").remove();
+                updata(tianqi);
+            }
+        })
+    }
+    
+    //在搜索框内搜索城市
+    $("input").focus(function () {
+        $(".search-text>span").html("搜索");
+    });
+    //点击搜索
+    $(".search-text>i").click(function () {
+        let text=$("input").val();
+        // console.log(text);
+        let flag;
+        for (let i in city) {
+            for(let j in city[i]){
+                    if(text==j){
+                        flag=true;
+                    }
+            }
+         }
+         if(flag==true){
+             ajax1(text);
+             let str=`<li>${text}</li>`;
+             $(".historylist>ul").append(str);
+             $(".search").hide(300);
+             $("input").val('');
+
+         }
+         else {
+             alert("请输入正确的城市");
+             return
+         }
+
+    });
+    $("input").blur(function () {
+        $(".search-text>span").html("取消");
+        // $("input").val('');
+    });
+    //点击垃圾箱删除历史记录
+    let deletes=$(".history>.title>i");
+    deletes.click(function () {
+        $(".historylist>ul>li").remove();
+    })
+
+
+    //1、获取当前城市的天气信息
+    let tianqi;
+    $.ajax({
+        type: "get",
+        url: "https://www.toutiao.com/stream/widget/local_weather/data/?city=太原",
+        dataType: "jsonp",
+        success: function (obj) {
+            tianqi = obj.data;
+            console.log(tianqi);
+            updata(tianqi);
+        }
+    });
+
+    function updata(tianqi) {
+        //获取当前的城市
+        $(".location>span").html(tianqi.city);
+        //获取当前空气状况
+        $(".box>p").html(tianqi.weather.quality_level);
+        //获取当前的温度
+        $("header>h1").html(tianqi.weather.current_temperature + "°");
+        //获取当前的天气状况
+        $("header>.wheather").html(tianqi.weather.current_condition);
+        //获取当前风向
+        $("header>.water").html(tianqi.weather.wind_direction);
+
+
+        //今天的天气
+        $(".first>span:eq(1)").html(tianqi.weather.high_temperature + '/' + tianqi.weather.low_temperature);
+        $(".second>span:eq(0)").html(tianqi.weather.forecast_list[1].condition);
+        $(".second>span:eq(1)>img").attr("src", "./img/" + tianqi.weather.forecast_list[1].weather_icon_id + ".png");
+
+        //明天的天气
+        $(".first:eq(1)>span:eq(1)").html(tianqi.weather.forecast_list[2].high_temperature + '/' + tianqi.weather.forecast_list[2].low_temperature);
+        $(".second:eq(1)>span:eq(0)").html(tianqi.weather.forecast_list[2].condition);
+        $(".second:eq(1)>span:eq(1)>img").attr("src", "./img/" + tianqi.weather.forecast_list[2].weather_icon_id + ".png");
+
+        //未来24小时天气
+        let hweather = tianqi.weather.hourly_forecast;
+        // console.log(hweather);
+        hweather.forEach(function (v) {
+            let str = `
+                    <li>
+                        <span class="time">${v.hour}:00</span>
+                        <span class="dot"><img src="./img/${v.weather_icon_id}.png" alt=""></span>
+                         <span>${v.temperature}°</span>
+                    </li>
+              `
+            $(".main-center>ul").append(str);
+        })
+
+        //未来半个月天气
+        let dweather = tianqi.weather.forecast_list;
+        // console.log(dweather);
+        dweather.forEach(function (v) {
+            let str = `<li>
+                         <div class="h-t">
+                             <!--<p>昨天</p>-->
+                            <p>${v.date}</p>
+                            <h4>${v.condition}</h4>
+                            <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
+                        </div>
+                        <div class="h-b">
+                             <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
+                             <h4>${v.condition}</h4>
+                             <p>${v.wind_direction}</p>
+                             <p>${v.wind_level}级</p>
+                        </div>
+                    </li>`
+            $(".main-home>ul").append(str);
+        })
+    }
+//})
+
+//获取默认城市的天气信息
+//获取所有城市的天气信息
+//点击每个城市可以获取当前城市的天气信息
+//在搜索框内输入要搜索的城市，点击搜索按钮搜索
+</script>
