@@ -69,7 +69,7 @@ header{
 .search-text>i{
     position: absolute;
     top: 0.4rem;
-    left: 0.4rem;
+    right: 1.4rem;
 }
 .search-text>span{
     font-size: 0.24rem;
@@ -236,6 +236,21 @@ header{
     float: left;
 }
 .viewlist>ul>li:nth-child(3n){
+    margin-right: 0;
+}
+.viewlist>ul>li:nth-child(4){
+    margin-left: 0.24rem;
+    margin-right: 0;
+}.viewlist>ul>li:nth-child(7){
+     margin-left: 0.24rem;
+     margin-right: 0;
+ }
+.viewlist>ul>li:nth-child(10){
+     margin-left: 0.24rem;
+     margin-right: 0;
+ }
+.viewlist>ul>li:nth-child(13){
+    margin-left: 0.24rem;
     margin-right: 0;
 }
 .picture{
