@@ -7,6 +7,7 @@
     <script src="./js/rem.js"></script>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <!--<script src="./js/index.js"></script>-->
+    <script src="./js/echarts.common.min.js"></script>
     <script type="text/javascript">
 
         document.addEventListener('plusready', function(){
@@ -192,6 +193,7 @@
         </div>
         <div class="main-home">
             <ul>
+                <div class="zhexian"></div>
                 <!--<li>
                     <div class="h-t">
                         <p>昨天</p>
@@ -469,7 +471,7 @@
          }
          else {
              alert("请输入正确的城市");
-             return
+             return;
          }
 
     });
@@ -535,8 +537,11 @@
         })
 
         //未来半个月天气
+        let arrdate=[];
+        let arrhigh=[];
+        let arrlow=[];
         let dweather = tianqi.weather.forecast_list;
-        // console.log(dweather);
+        console.log(dweather);
         dweather.forEach(function (v) {
             let str = `<li>
                          <div class="h-t">
@@ -553,7 +558,65 @@
                         </div>
                     </li>`
             $(".main-home>ul").append(str);
-        })
+
+
+            arrdate.push(v.date);
+            arrhigh.push(v.high_temperature);
+            arrlow.push(v.low_temperature);
+         })
+        console.log(arrdate,arrhigh,arrlow);
+        let myChart = echarts.init($(".zhexian")[0]);
+        let option = {
+            title: {
+            },
+            tooltip: {},
+            legend: {
+                data:['最高温度','最低温度']
+            },
+            xAxis: {
+                data:arrdate,
+                show:false,
+                // axisLabel:{textStyle:{fontSize:25}
+                axisTick: {length:20}
+            },
+            yAxis: {
+                show:false
+            },
+            series: [{
+                itemStyle : {
+                    normal : {
+                        label : {show: true},
+                        color:'#FFB74D',
+                        lineStyle:{
+                            color:'#FFB74D'
+                        }
+                    }
+                },
+                name:'温度',
+                type: 'line',
+                data: arrhigh
+            },
+                {
+                    itemStyle : {
+                        normal : {
+                            label : {show: true},
+                            color:'#4FC3F7',
+                            lineStyle:{
+                                color:'#4FC3F7'
+                            }
+                        }
+                    },
+                    name:'温度',
+                    type: 'line',
+                    data: arrlow
+                }
+            ],
+        }
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
     }
 //})
 

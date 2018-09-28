@@ -424,6 +424,7 @@ li .second{
     border-top: solid 0.02rem #E1E1E1;
     border-bottom: solid 0.02rem #E1E1E1;
     margin-bottom: 0.24rem;
+    position: relative;
 }
 .main-home>ul{
     width: 100%;
@@ -440,6 +441,14 @@ li .second{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.zhexian{
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    top: 2.32rem;
+    left: 0;
+    /*background: #fafafa;*/
 }
 .h-t{
     width: 1.32rem;
