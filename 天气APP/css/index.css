@@ -425,13 +425,24 @@ li .second{
     border-bottom: solid 0.02rem #E1E1E1;
     margin-bottom: 0.24rem;
     position: relative;
+    overflow: auto;
+}
+#zhexian{
+    width: 28rem;
+    height: 3rem;
+    position: absolute;
+    top: 2.32rem;
+    left: -2.6rem;
+    padding: 0;
+    /*background: #fafafa;*/
 }
 .main-home>ul{
-    width: 100%;
+    width: 23rem;
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    overflow: auto;
+    /*justify-content: space-between;*/
+    overflow: hidden;
+    position: relative;
 }
 .main-home>ul>li{
     width: 1.4rem;
@@ -441,6 +452,7 @@ li .second{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 .zhexian{
     width: 100%;

@@ -193,7 +193,7 @@
         </div>
         <div class="main-home">
             <ul>
-                <div class="zhexian"></div>
+                <div id="zhexian"></div>
                 <!--<li>
                     <div class="h-t">
                         <p>昨天</p>
@@ -279,6 +279,8 @@
                     </div>
                 </li>-->
             </ul>
+
+
         </div>
         <div class="main-foot">
             <ul>
@@ -541,31 +543,33 @@
         let arrhigh=[];
         let arrlow=[];
         let dweather = tianqi.weather.forecast_list;
+
         console.log(dweather);
         dweather.forEach(function (v) {
-            let str = `<li>
-                         <div class="h-t">
-                             <!--<p>昨天</p>-->
-                            <p>${v.date}</p>
-                            <h4>${v.condition}</h4>
-                            <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
-                        </div>
-                        <div class="h-b">
-                             <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
-                             <h4>${v.condition}</h4>
-                             <p>${v.wind_direction}</p>
-                             <p>${v.wind_level}级</p>
-                        </div>
-                    </li>`
-            $(".main-home>ul").append(str);
+            // for(let i=0;i<6;i++){}
+                let str = `<li>
+                             <div class="h-t">
+                                 <!--<p>昨天</p>-->
+                                <p>${v.date}</p>
+                                <h4>${v.condition}</h4>
+                                <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
+                            </div>
+                            <div class="h-b">
+                                 <span><img src="./img/${v.weather_icon_id}.png" alt=""></span>
+                                 <h4>${v.condition}</h4>
+                                 <p>${v.wind_direction}</p>
+                                 <p>${v.wind_level}级</p>
+                            </div>
+                        </li>`
+                $(".main-home>ul").append(str);
+                arrdate.push(v.date);
+                arrhigh.push(v.high_temperature);
+                arrlow.push(v.low_temperature);
 
-
-            arrdate.push(v.date);
-            arrhigh.push(v.high_temperature);
-            arrlow.push(v.low_temperature);
          })
+
         console.log(arrdate,arrhigh,arrlow);
-        let myChart = echarts.init($(".zhexian")[0]);
+        let myChart = echarts.init($("#zhexian")[0]);
         let option = {
             title: {
             },
@@ -574,10 +578,16 @@
                 data:['最高温度','最低温度']
             },
             xAxis: {
-                data:arrdate,
-                show:false,
-                // axisLabel:{textStyle:{fontSize:25}
-                axisTick: {length:20}
+                data: arrdate,
+                show: false,
+                // max:5,
+                // splitNumber:16,
+                /*axisLabel: {
+                    // textStyle: {fontSize: 25},
+                    // axisTick: {length: 60},
+
+                },*/
+
             },
             yAxis: {
                 show:false
@@ -589,7 +599,8 @@
                         color:'#FFB74D',
                         lineStyle:{
                             color:'#FFB74D'
-                        }
+                        },
+
                     }
                 },
                 name:'温度',
